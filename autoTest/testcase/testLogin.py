@@ -19,7 +19,7 @@ class TestLogin(unittest.TestCase):
         self.assertEqual(200, res.status_code)
         print(res.text)
         self.assertIn("Wrong credentials", res.text)
-if __name__=="__main__:"
+if __name__=="__main__":
     unittest.main()
 
 
