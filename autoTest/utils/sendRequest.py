@@ -22,8 +22,7 @@ class sendRequest:
         token = find_all[0].attrs["value"]
         return token
 
-    def sendrequest(self,email,pw):
-        url = "http://127.0.0.1:5000/login"
+    def sendrequest(self,url,email,pw):
         token = self.getCsrfToken()
         sessions = requests.session()
         sessions.cookies = self.cookie

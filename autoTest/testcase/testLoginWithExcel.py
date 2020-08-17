@@ -13,6 +13,6 @@ class testLoginwithExcel(unittest.TestCase):
     def testRunTests(self):
         for testdata in self.dataLists:
             with self.subTest(msg=testdata[0]):
-                res = self.sl.sendrequest(testdata[1], int(testdata[2]))
-                self.assertEqual(testdata[3], int(res.status_code))
-                self.assertIn(testdata[4], res.text)
+                res = self.sl.sendrequest(testdata[1],testdata[2], int(testdata[3]))
+                self.assertEqual(testdata[4], int(res.status_code))
+                self.assertIn(testdata[5], res.text)
