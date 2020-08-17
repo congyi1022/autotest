@@ -2,33 +2,19 @@
 import requests
 from bs4 import BeautifulSoup
 import logging
+from utils import getTokenAndCookie
 
 
 class sendRequest:
-
-    def __init__(self):
-        self.cookie = None
-
-    def getCsrfToken(self):
-        url="http://127.0.0.1:5000/login"
-        sessions = requests.session()
-        res= sessions.get(url)
-        self.cookie = res.cookies
-        # print(self.cookie)
-        logging.info("cookie",res.cookies)
-
-        soup = BeautifulSoup(res.text, "html.parser")
-        find_all = soup.find_all("input", attrs={"id": "csrf_token", "name": "csrf_token", "type": "hidden"})
-        token = find_all[0].attrs["value"]
-        return token
-
-    def sendRequest(self, url, email, pw):
-        token = self.getCsrfToken()
-        sessions = requests.session()
-        sessions.cookies = self.cookie
-        datas = {
-            "csrf_token": token,
-            "email": email, "password": pw}
-        res = sessions.post(url, data=datas)
+    def sendRequest(self,url,email,pw):
+        datas = getTokenAndCookie.getToken(url)
+        session = requests.session()
+        session.cookies=datas["cookie"]
+        crsf_token=datas["token"]
+        postData = {
+                "csrf_token": crsf_token,
+                "email": email, "password": pw}
+        res=session.post(url,data=postData)
         return res
+
 
