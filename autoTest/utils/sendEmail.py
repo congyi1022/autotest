@@ -40,6 +40,3 @@ class SendEmail:
         sub = "接口自动化测试报告"
         content = "接口自动化测试结果，详情见附件"
         self.send_mail(receiver, sub, content)
-
-s=SendEmail()
-s.send_main()
