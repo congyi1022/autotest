@@ -25,6 +25,6 @@ class TestLoginWithDataList(unittest.TestCase):
     def testRunTests(self):
         for testdata in self.testdatas:
             with self.subTest(msg=testdata["name"]):
-                res=self.sl.sendrequest(testdata["url"],testdata["email"],testdata["pw"])
+                res=self.sl.sendRequest(testdata["url"], testdata["email"], testdata["pw"])
                 self.assertEqual(testdata["code"], res.status_code)
                 self.assertIn(testdata["message"], res.text)

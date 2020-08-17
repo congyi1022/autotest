@@ -22,13 +22,13 @@ class sendRequest:
         token = find_all[0].attrs["value"]
         return token
 
-    def sendrequest(self,url,email,pw):
+    def sendRequest(self, url, email, pw):
         token = self.getCsrfToken()
         sessions = requests.session()
         sessions.cookies = self.cookie
         datas = {
             "csrf_token": token,
             "email": email, "password": pw}
-        r = sessions.post(url, data=datas)
-        return r
+        res = sessions.post(url, data=datas)
+        return res
 

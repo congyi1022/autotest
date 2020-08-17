@@ -10,13 +10,13 @@ class TestLogin(unittest.TestCase):
         self.sl= sendRequest.sendRequest()
 
     def testRightEmailandRightPW(self):
-        res=self.sl.sendrequest(self.url,"licongyi@wecash.net","123456")
+        res=self.sl.sendRequest(self.url, "licongyi@wecash.net", "123456")
         self.assertEqual(200,res.status_code)
         print(res.text)
         self.assertIn("Logged in successfully",res.text)
 
     def testRightEmailandErrorPW(self):
-        res = self.sl.sendrequest(self.url,"licongyi@wecash.net", "111111")
+        res = self.sl.sendRequest(self.url, "licongyi@wecash.net", "111111")
         self.assertEqual(200, res.status_code)
         print(res.text)
         self.assertIn("Wrong credentials", res.text)
