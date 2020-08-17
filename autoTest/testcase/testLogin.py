@@ -1,5 +1,5 @@
 # coding:utf-8
-from utils import sendRequest
+from utils import SendRequest
 import unittest
 
 class TestLogin(unittest.TestCase):
@@ -7,7 +7,7 @@ class TestLogin(unittest.TestCase):
 
 
     def setUp(self):
-        self.sl= sendRequest.sendRequest()
+        self.sl= SendRequest.SendRequest()
 
     def testRightEmailandRightPW(self):
         res=self.sl.sendRequest(self.url, "licongyi@wecash.net", "123456")

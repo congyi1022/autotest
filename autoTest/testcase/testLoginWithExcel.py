@@ -1,5 +1,5 @@
 # coding:utf-8
-from utils import sendRequest
+from utils import SendRequest
 import unittest
 import xlrd
 from utils.readExcel import ReadExcel
@@ -8,7 +8,7 @@ class testLoginwithExcel(unittest.TestCase):
     dataLists=ReadExcel().get_excel()
 
     def setUp(self) :
-        self.sl = sendRequest.sendRequest()
+        self.sl = SendRequest.SendRequest()
 
     def testRunTests(self):
         for testdata in self.dataLists:

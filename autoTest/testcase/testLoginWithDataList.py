@@ -1,5 +1,5 @@
 # coding:utf-8
-from utils import sendRequest
+from utils import SendRequest
 import unittest
 
 
@@ -20,7 +20,7 @@ class TestLoginWithDataList(unittest.TestCase):
     ]
 
     def setUp(self):
-        self.sl = sendRequest.sendRequest()
+        self.sl = SendRequest.SendRequest()
 
     def testRunTests(self):
         for testdata in self.testdatas:
