@@ -6,6 +6,7 @@ from utils.readExcel import ReadExcel
 
 class testLoginwithExcel(unittest.TestCase):
     dataLists=ReadExcel().get_excel()
+    print(dataLists)
 
     def setUp(self) :
         self.sl = SendRequest.SendRequest()
@@ -13,6 +14,6 @@ class testLoginwithExcel(unittest.TestCase):
     def testRunTests(self):
         for testdata in self.dataLists:
             with self.subTest(msg=testdata[0]):
-                res = self.sl.sendRequest(testdata[1], testdata[2], int(testdata[3]))
-                self.assertEqual(testdata[4], int(res.status_code))
-                self.assertIn(testdata[5], res.text)
+                res = self.sl.sendRequest(testdata[1], testdata[2])
+                self.assertEqual(testdata[3], int(res.status_code))
+                self.assertIn(testdata[4], res.text)
