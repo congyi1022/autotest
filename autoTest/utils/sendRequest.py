@@ -12,7 +12,7 @@ class RunMain:
         res = requests.post(url, data=post_data, cookies=cookie)
         return res
 
-    def main_request(self, method, url, data=None, cookie=None):
+    def mainRequest(self, method, url, data=None, cookie=None):
         res = None
         if method == "GET":
             res = self.sendGetRequest(url, data)

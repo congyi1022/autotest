@@ -1,5 +1,5 @@
 # coding:utf-8
-from utils import SendRequest
+from utils import sendRequest
 import unittest
 from utils.readExcel import ReadExcel
 from utils import getTokenAndCookie
@@ -7,10 +7,10 @@ import json
 
 
 class testLoginwithExcel(unittest.TestCase):
-    dataLists = ReadExcel().get_excel()
+    dataLists = ReadExcel().getExcel()
 
     def setUp(self):
-        self.sl = SendRequest.RunMain()
+        self.sl = sendRequest.RunMain()
 
     def testRunTests(self):
         for testdata in self.dataLists:
@@ -28,6 +28,6 @@ class testLoginwithExcel(unittest.TestCase):
             cookies = datas["cookie"]
 
             with self.subTest(msg=name):
-                res = self.sl.main_request(method, url, post_data, cookies)
+                res = self.sl.mainRequest(method, url, post_data, cookies)
                 self.assertEqual(status_code, int(res.status_code))
                 self.assertIn(status_message, res.text)

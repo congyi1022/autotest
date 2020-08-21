@@ -6,7 +6,7 @@ import xlrd
 class ReadExcel:
     """读取excel文件"""
 
-    def get_excel(self):
+    def getExcel(self):
         cls = []
         xlsx_path = "../testcase/test.xlsx"
         file = xlrd.open_workbook(filename=xlsx_path)
